@@ -1,0 +1,11 @@
+---
+# tasks file for pingrole
+- name: Test connectivity to the host
+  ping:
+  register: ping_result
+  ignore_errors: yes
+
+- name: Print ping result
+  debug:
+    var: ping_result
+  when: ping_result.failed
